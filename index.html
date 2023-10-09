@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="RegionBLIP">
-  <meta name="keywords" content="BLIP2, open-source, vision-language">
+        content="SingleInsert">
+  <meta name="keywords" content="T2I generation, I2T inversion">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RegionBLIP</title>
+  <title>SingleInsert</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -81,33 +81,31 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">RegionBLIP:</h1>
-          <h2 class="title is-2 publication-title">A Unified Multi-modal Pre-training Framework for Holistic and
-Regional Comprehension</h2>
+          <h1 class="title is-1 publication-title">SingleInsert:</h1>
+          <h2 class="title is-2 publication-title">Inserting New Concepts from a Single Image into Text-to-Image Models for Flexible Editing</h2>
           <div class="is-size-5">
             <span class="author-block">
-              <a style="color:#008AD7;font-weight:normal;">Qiang Zhou</a>,&nbsp;
+              <a style="color:#008AD7;font-weight:normal;">Zijie Wu</a>,&nbsp;
             </span>
             <span class="author-block">
               <a href="https://richardych.github.io/" style="color:#008AD7;font-weight:normal;">Chaohui Yu</a>,&nbsp;
             </span>
             <span class="author-block">
-              <a style="color:#008AD7;font-weight:normal;">Shaofeng Zhang</a>,&nbsp;
+              <a style="color:#008AD7;font-weight:normal;">Zhen Zhu</a>,&nbsp;
             </span>
             <span class="author-block">
-              <a style="color:#008AD7;font-weight:normal;">Sitong Wu</a>,&nbsp;
+              <a style="color:#008AD7;font-weight:normal;">Fan Wang</a>,&nbsp;
             </span>
             <span class="author-block">
-              <a style="color:#008AD7;font-weight:normal;">Zhibing Wang</a>,&nbsp;
-            </span>
-            <span class="author-block">
-              <a style="color:#008AD7;font-weight:normal;">Fan Wang</a>
+              <a style="color:#008AD7;font-weight:normal;">Xiang Bai</a>
             </span>
           </div>
 
           <br>
           <div class="is-size-5 publication-authors">
+            <span class="author-block"><b style="color:#008AD7; font-weight:normal">&#x25B6 </b> Huazhong University of Science and Technology</span>
             <span class="author-block"><b style="color:#008AD7; font-weight:normal">&#x25B6 </b> DAMO Academy, Alibaba Group</span>
+            <span class="author-block"><b style="color:#008AD7; font-weight:normal">&#x25B6 </b> University of Illinois at Urbana-Champaign</span>
             <!-- <span class="author-block"><b style="color:#008AD7; font-weight:normal">&#x25B6 </b>Microsoft Cloud & AI </span> -->
           </div>
 
@@ -135,7 +133,7 @@ Regional Comprehension</h2>
               </span>
               
               <span class="link-block">
-                <a href="https://github.com/mightyzau/RegionBLIP" target="_blank" 
+                <a href="https://github.com/JarrentWu1031/SingleInsert" target="_blank" 
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -157,7 +155,7 @@ Regional Comprehension</h2>
               
               
               <span class="link-block">
-                <a href="https://github.com/mightyzau/RegionBLIP" target="_blank"
+                <a href="https://github.com/JarrentWu1031/SingleInsert" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="fa fa-database"></i>
@@ -325,7 +323,7 @@ Regional Comprehension</h2>
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            In this work, we investigate extending the comprehension of Multi-modal Large Language Models (MLLMs) to regional objects. To this end, we propose to extract features corresponding to regional objects as soft prompts for LLM, which provides a straightforward and scalable approach and eliminates the need for LLM fine-tuning. To effectively extract regional features from regular image features and irregular point cloud features, we present a novel and unified position-assisted feature extraction module. Furthermore, training an MLLM from scratch is highly time-consuming. Thus, we propose incrementally extending existing pre-trained MLLMs to comprehend more modalities and the regional objects of those modalities. Specifically, we freeze the Q-Former from BLIP-2, an impressive MLLM, and optimize the modality-specific Lora parameters in Q-Former and LLM for each newly introduced modality. The freezing of the Q-Former eliminates the need for extensive pre-training on massive image-text data. The freezed Q-Former pre-trained from massive image-text data is also beneficial for the pre-training on image-region-text data. We name our framework RegionBLIP. We pre-train RegionBLIP on image-region-text, point-cloud-text, and point-cloud-region-text data. Experimental results verify that RegionBLIP can preserve the image comprehension capability of BILP-2 and further gain a comprehension of the newly introduced point cloud modality and regional objects. The Data, Code, and Pre-trained models will be available at https://github.com/mightyzau/RegionBLIP.
+            Recent progress in text-to-image (T2I) models enables high-quality image generation with flexible textual control. To utilize the abundant visual priors in the off-the-shelf T2I models, a series of methods try to invert an image to proper embedding that aligns with the semantic space of the T2I model. However, these image-to-text (I2T) inversion methods typically need multiple source images containing the same concept or struggle with the imbalance between editing flexibility and visual fidelity. In this work, we point out that the critical problem lies in the foreground-background entanglement when learning an intended concept, and propose a simple and effective baseline for single-image I2T inversion, named SingleInsert. SingleInsert adopts a two-stage scheme. In the first stage, we regulate the learned embedding to concentrate on the foreground area without being associated with the irrelevant background. In the second stage, we finetune the T2I model for better visual resemblance and devise a semantic loss to prevent the \textit{language drift} problem. With the proposed techniques, SingleInsert excels in single concept generation with high visual fidelity while allowing flexible editing. Additionally, SingleInsert can perform single-image novel view synthesis and multiple concepts composition without requiring joint training. To facilitate evaluation, we design an editing prompt list and introduce a metric named Editing Success Rate (ESR) for quantitative assessment of editing flexibility. The code will be available at https://github.com/JarrentWu1031/SingleInsert.
           </p>
         </div>
       </div>
@@ -340,10 +338,10 @@ Regional Comprehension</h2>
     <br>
     <div class="columns is-centered has-text-centered">
       <div class="column is-six-fifths">
-        <h2 class="title is-3">Model</h2>
+        <h2 class="title is-3">Pipeline</h2>
         <div class="content has-text-justified">
           <p>
-            <b>RegionBLIP</b> consists of three primary modules: modal feature extraction, modal feature alignment, and LLM comprehension. The feature extraction module extracts features from different modalities, such as images (I) and point clouds (P). The feature alignment module aligns these modality features with text embeddings to facilitate the LLM's comprehension of these modality inputs. The final frozen LLM model processes these aligned modality features as input to generate the final text comprehension. RegionBLIP is a unified pre-training framework supporting LLM's comprehension of images, point clouds, and regional objects. For efficient pre-training, RegionBLIP freezes the Q-Former of BLIP2 and learns a set of modality-specific LoRA parameters for newly added modalities. To effectively extract region features from regular image features and irregular point cloud features, RegionBLIP proposes a unified scheme of position embedding-assisted region feature extraction modules.
+            <b>SingleInsert</b> consists of three primary modules: modal feature extraction, modal feature alignment, and LLM comprehension. The feature extraction module extracts features from different modalities, such as images (I) and point clouds (P). The feature alignment module aligns these modality features with text embeddings to facilitate the LLM's comprehension of these modality inputs. The final frozen LLM model processes these aligned modality features as input to generate the final text comprehension. RegionBLIP is a unified pre-training framework supporting LLM's comprehension of images, point clouds, and regional objects. For efficient pre-training, RegionBLIP freezes the Q-Former of BLIP2 and learns a set of modality-specific LoRA parameters for newly added modalities. To effectively extract region features from regular image features and irregular point cloud features, RegionBLIP proposes a unified scheme of position embedding-assisted region feature extraction modules.
           </p>
           <ul>
           </ul>
