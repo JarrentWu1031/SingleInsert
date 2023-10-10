@@ -1,2 +1,2 @@
 # SingleInsert
-Official pytorch implementation for SingleInsert, code will be available soon.
+Official pytorch implementation for SingleInsert. Code will be available soon.
