@@ -2,8 +2,8 @@
 
 [**Project**]() | [**Paper**]() | [**Supp File**]()
 
-<div style="text-align: center;">
-    <img src="teaser.png" width="40%">
+<div align=center>
+    <img src="https://github.com/JarrentWu1031/SingleInsert/blob/main/teaser.png" width=85%>
 </div>
   
 Code will be released soon!
