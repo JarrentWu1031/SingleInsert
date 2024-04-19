@@ -5,7 +5,7 @@
 If you find our work useful for your research, please star this repo and cite our paper. Thanks!
 ```
 @article{wu2023singleinsert,
-    author = {Wu, Zijie and Yu, Chaohui and Wang, Fan and Bai, Xiang.},
+    author = {Wu, Zijie and Yu, Chaohui and Zhu, Zhen and Wang, Fan and Bai, Xiang.},
     title  = {SingleInsert: Inserting New Concepts from a Single Image into Text-to-Image Models for Flexible Editing},
     journal = {arxiv:2310.08094},
     year   = {2023},
